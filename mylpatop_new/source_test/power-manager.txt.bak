@@ -1,0 +1,33 @@
+            SMD0,   256, 
+            B1CH,   32, 
+            B2CH,   32, //Not Used
+            B1MO,   16, //Not Used
+            B2MO,   16, //Not Used
+            B1SN,   16, //Not Used
+            B2SN,   16, //Not Used
+            B1DT,   16, 
+            B2DT,   16, //Not Used
+            B1CY,   16, 
+            B2TM,   16, //Not Used
+            B2RS,   16, //Not Used
+            B1MA,   64, 
+            B2MA,   64, 
+            B2CV,   16, //Not Used
+            RTEP,   16, 
+            BET2,   16, 
+            B1TM,   16, 
+            BAPV,   16, 
+            B1CV,   16, //Not Used
+            BARC,   16, 
+            BADC,   16, 
+            BADV,   16, 
+            BDCW,   16, //Not Used
+            BDCL,   16, //Not Used
+            BAFC,   16, 
+            BAPR,   16, //Not Used
+            B1CR,   16, 
+            B1AR,   16, //Not Used
+            F1SP,   16, //Not Used
+            F2SP,   16, //Not Used
+            BCG1,   16, //Not Used
+            BCG2,   16  //Not Used

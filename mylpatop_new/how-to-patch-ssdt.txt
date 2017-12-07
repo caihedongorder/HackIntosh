@@ -1,0 +1,51 @@
+Finally, keep in mind you cannot provide patched SSDTs without dropping the OEM SSDTs that they replace. 
+The easiest way is to use DropSSDT=Yes (Chameleon) or ACPI/SSDT/DropOem=true (Clover) to drop all the SSDTs, 
+then provide the patched (and unpatched) files for loading by the bootloader.
+
+Note: The SSDTs must be loaded by the bootloader in their original order. 
+The original order is specified by the number after the name. 
+For example, if you used Clover F4 to extract you might have something like: SSDT-0.aml, SSDT-1.aml, SSDT-2.aml, SSDT-3.aml, which indicates the SSDTs must be loaded in that order (0/1/2/3).
+
+
+
+A new feature in the RehabMan fork of Clover allows you to replace OEM SSDTs without using DropOem=true, 
+and without using SortedOrder, all the while maintaining original order of the unpatched and patched SSDTs as injected by Clover. 
+By setting config.plist/ACPI/AutoMerge=true, this feature is enabled. 
+The SSDT must retain its original numbering scheme when placed in ACPI/patched. 
+This feature was added as of 2017-10-26 in Clover_v2.4k_r4265.RM-4346.38d5ad43.zip, 
+but was not working correctly until 2017-11-24, Clover_v2.4k_r4318.RM-4429.43710d68.pkg. 
+The required changes are implemented in the official Clover (on sourceforge) as of r4319. 
+Each of the plists linked by the main laptop guide uses AutoMerge=true by default.
+
+Configurations listed first are more desirable.
+
+Full hotpatch:
+- all patching is done via config.plist
+- only add-on SSDTs in ACPI/patched (eg. no patched DSDT, no patched SSDTs)
+- SortedOrder can be left unspecified
+- DropOem=false
+
+Partial hotpatch:
+- patched DSDT.aml in ACPI/patched
+- only add-on SSDTs in ACPI/patched (eg. no patched SSDTs)
+- renames (applies to DSDT.aml in ACPI/patched and native SSDTs) done with config.plist
+- SortedOrder left unspecified
+- DropOem=false
+
+Partial hotpatch with patched SSDTs:
+- RehabMan Clover required
+- patched DSDT.aml in ACPI/patched
+- select patched SSDTs in ACPI/patched (must be named as extracted to ACPI/origin)
+- add-on SSDTs also placed in ACPI/patched
+- renames can still be done with config.plist
+- SortedOrder left unspecified
+- config.plist/ACPI/AutoMerge=true
+- DropOem=false
+
+Full patched DSDT + SSDTs:
+- patched DSDT.aml in ACPI/patched
+- full set of static patched OEM SSDTs in ACPI/patched (original names as from ACPI/origin)
+- add-on SSDTs also placed in ACPI/patched
+- renames in config.plist not recommended (they will apply only to DSDT.aml)
+- SortedOrder required to set SSDT load order
+- DropOem=true
