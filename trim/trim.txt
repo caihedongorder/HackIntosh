@@ -1,0 +1,7 @@
+https://imac.hk/clover-configurator-open-ssd-trim.html
+
+IOAHCIBlockStorage
+4150504c 45205353 4400
+00000000 00000000 0000
+
+sudo trimforce enable
