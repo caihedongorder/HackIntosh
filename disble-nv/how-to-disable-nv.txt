@@ -1,0 +1,4 @@
+https://www.tonymacx86.com/threads/guide-disabling-discrete-graphics-in-dual-gpu-laptops.163772/
+
+1,add off method to ini method
+2,patch 'Disable/Enable on _WAK/_PTS (DSDT)'
